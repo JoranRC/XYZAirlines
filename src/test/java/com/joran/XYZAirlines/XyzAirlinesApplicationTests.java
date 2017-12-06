@@ -1,7 +1,6 @@
 package com.joran.XYZAirlines;
 
 import com.joran.XYZAirlines.models.Aircraft;
-import com.joran.XYZAirlines.models.Airport;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,9 +21,8 @@ public class XyzAirlinesApplicationTests {
 	@Test
 	public void testAircraftModel() {
 		List<Aircraft> aircraftList = new ArrayList<Aircraft>();
-		Airport london = new Airport(1, "London", aircraftList);
-		Aircraft aircraft = new Aircraft(1, "Boeing", "london", 1, 5);
-
+		Aircraft aircraft = new Aircraft("Boeing", "london", 1, 5);
+		aircraft.setId(1);
 		long id = aircraft.getId();
 		String aircraftName = aircraft.getAircraftName();
 
@@ -34,21 +32,7 @@ public class XyzAirlinesApplicationTests {
 		;
 	}
 
-	@Test
-	public void testAirplaneModel(){
-		List<Aircraft> aircraftList = new ArrayList<Aircraft>();
-		Airport london = new Airport(1,"London", aircraftList);
-		Aircraft aircraft = new Aircraft(1,"Boeing", "london", 1,5);
 
-		long id = london.getId();
-		String airportName = london.getAirportName();
-		List<Aircraft> aircraftList2 = london.getAircraftList();
-
-		assertEquals(1,id);
-		assertEquals("London", airportName);
-		assertEquals(aircraftList, aircraftList2);
-
-	}
 
 
 

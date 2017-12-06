@@ -11,24 +11,29 @@ public class Aircraft {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @NotNull
-    public String aircraftName;
+    private String aircraftName;
     @NotNull
-    public String airportLocation;
+    private String airportLocation;
     @NotNull
-    public int maxFuelLevel;
+    private int maxFuelLevel;
     @NotNull
-    public int fuelLevel;
+    private int fuelLevel;
 
-    public Aircraft(){
+    public Aircraft(){ }
 
-    }
-
-    public Aircraft(int id, String aircraftName, String airportLocationocation, int maxFuelLevel, int fuelLevel) {
-        this.id = id;
+    public Aircraft(String aircraftName, String airportLocation, int maxFuelLevel, int fuelLevel) {
         this.aircraftName = aircraftName;
         this.airportLocation = airportLocation;
         this.maxFuelLevel = maxFuelLevel;
         this.fuelLevel = fuelLevel;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getAircraftName() {
@@ -39,12 +44,12 @@ public class Aircraft {
         this.aircraftName = aircraftName;
     }
 
-    public String getAirport() {
+    public String getAirportLocation() {
         return airportLocation;
     }
 
-    public void setAirport(String airportlocation) {
-        this.airportLocation = airportlocation;
+    public void setAirportLocation(String airportLocation) {
+        this.airportLocation = airportLocation;
     }
 
     public int getMaxFuelLevel() {
@@ -61,9 +66,5 @@ public class Aircraft {
 
     public void setFuelLevel(int fuelLevel) {
         this.fuelLevel = fuelLevel;
-    }
-
-    public long getId() {
-        return id;
     }
 }
