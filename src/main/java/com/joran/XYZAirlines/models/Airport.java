@@ -22,4 +22,28 @@ public class Airport {
         this.airportName = airportName;
         this.aircraftList = aircraftList;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getAirportName() {
+        return airportName;
+    }
+
+    public void setAirportName(String airportName) {
+        this.airportName = airportName;
+    }
+
+    public List<Aircraft> getAircraftList() {
+        return aircraftList;
+    }
+
+    public void setAircraftList(List<Aircraft> aircraftList) {
+        this.aircraftList = aircraftList;
+    }
 }
