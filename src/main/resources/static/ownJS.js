@@ -109,11 +109,9 @@ function fuelUp() {
             success: function(result) {
                 console.log("this is the data: " + result);
 
-                console.log(result.aircraftName);
                 var currentNumber = result.fuelLevel;
-                console.log(currentNumber);
                 result.fuelLevel = currentNumber + 1;
-                console.log(result.fuelLevel);
+
 
                 var newAircraft = {
                         id : result.id,
@@ -141,6 +139,8 @@ function flyTo() {
 
                 var newAirportLocation = $('#updateAirportLocation').val();
 
+                var currentNumber = result.fuelLevel;
+                result.fuelLevel = currentNumber - 2;
                 result.airportLocation = newAirportLocation;
 
                 var newAircraft = {
