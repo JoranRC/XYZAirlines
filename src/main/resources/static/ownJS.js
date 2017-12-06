@@ -15,8 +15,7 @@ function getData() {
 }
 
 function showModal(id){
-    $(id).modal('toggle');
-    $(document).ready(getAircrafts());
+    $(id).modal('show');
 }
 
 function postNewAircraft() {
@@ -43,6 +42,12 @@ function postNewAircraft() {
             contentType: "application/json",
             success: function(result){
                 console.log("succes, posted airport");
+                $('#newAircraftModal').modal('hide');
+                  $('#inputName').val("");
+                  $('#inputAirportLocation').val("");
+                  $('#inputMaxFuelLevel').val("");
+                  $('#inputFuelLevel').val("");
+                getData();
             }
     });
 }
