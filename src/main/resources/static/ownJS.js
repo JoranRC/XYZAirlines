@@ -53,16 +53,12 @@ function getOne(id) {
         type: "get",
         success: function(result) {
             console.log("this is the data: " + result);
-
-
             console.log(result.aircraftName);
             return result;
 
         }
     })
 }
-
-
 
 
 
@@ -116,7 +112,7 @@ function fuelUp() {
                 console.log(result.aircraftName);
                 var currentNumber = result.fuelLevel;
                 console.log(currentNumber);
-                result.fuelLevel = currentNumber + 5;
+                result.fuelLevel = currentNumber + 1;
                 console.log(result.fuelLevel);
 
                 var newAircraft = {
@@ -133,8 +129,34 @@ function fuelUp() {
 
             }
         })
+}
 
+function flyTo() {
+     console.log("Fly to..");
+     $.ajax({
+            url: "http://localhost:8080/api/aircraft/getOne/" + idForAll,
+            type: "get",
+            success: function(result) {
+                console.log("this is the data: " + result);
 
+                var newAirportLocation = $('#updateAirportLocation').val();
+
+                result.airportLocation = newAirportLocation;
+
+                var newAircraft = {
+                        id : result.id,
+                        aircraftName : result.aircraftName,
+                        airportLocation : result.airportLocation,
+                        maxFuelLevel : result.maxFuelLevel,
+                        fuelLevel : result.fuelLevel
+                        }
+
+                var validJsonAircraft = JSON.stringify(newAircraft);
+                putData(validJsonAircraft);
+                $('#flyToModal').modal('hide');
+
+            }
+        })
 }
 
 

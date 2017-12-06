@@ -20,7 +20,6 @@ public class XyzAirlinesApplicationTests {
 
 	@Test
 	public void testAircraftModel() {
-		List<Aircraft> aircraftList = new ArrayList<Aircraft>();
 		Aircraft aircraft = new Aircraft("Boeing", "london", 1, 5);
 		aircraft.setId(1);
 		long id = aircraft.getId();

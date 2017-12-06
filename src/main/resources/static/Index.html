@@ -27,15 +27,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" onclick="">XYZ Airlines</a>
+                <a class="navbar-brand" href="#" onclick=""></a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
+             -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li id="addaircraft-button"><a href="#" onclick="showModal('#myModal')">Add new aircraft</a></li>
                     <li id="deleteaircraft-button"><a href="#" onclick="deleteOne()">Delete aircraft</a></li>
                     <li id="fuelaircraft-button"><a href="#" onclick="fuelUp()">Tank aircraft</a></li>
+                    <li id="flyaircraft-button"><a href="#" onclick="showModal('#flyToModal')">Fly to</a></li>
+
                 </ul>
 
             </div><!-- /.navbar-collapse -->
@@ -73,7 +75,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Add Aircraft</h4>
             </div>
             <div class="modal-body">
                 <form class="formcenter" data-toggle="validator" role="form" id="form">
@@ -83,7 +85,7 @@
                             <label for="inputName">Aircraft Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" class="form-control" id="inputName" name="roomNumber" placeholder="Generic Aircraft name" value="" required>
+                            <input type="text" class="form-control" id="inputName" name="aircraftname" placeholder="Generic Aircraft name" value="" required>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -92,7 +94,7 @@
                             <label for="inputMaxFuelLevel">Max Fuel Level</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" class="form-control" id="inputMaxFuelLevel" name="roomNumber" value="5" required>
+                            <input type="number" class="form-control" id="inputMaxFuelLevel" name="maxFuelLevel" value="5" required>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -101,7 +103,7 @@
                             <label for="inputFuelLevel">Current fuellevel</label>
                         </div>
                         <div class="col-75">
-                            <input type="number" class="form-control" id="inputFuelLevel" name="roomNumber" placeholder="current fuellevel" value="" required>
+                            <input type="number" class="form-control" id="inputFuelLevel" name="fuelLevel" placeholder="1" value="" required>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -127,6 +129,34 @@
 
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="flyToModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Fly to</h4>
+            </div>
+            <div id="flyToModalBody" class="modal-body">
+                <select id="updateAirportLocation" required>
+                    <option value="Amsterdam">Amsterdam</option>
+                    <option value="London">London</option>
+                    <option value="Parijs">Parijs</option>
+                    <option value="Stockholm">Stockholm</option>
+                    <option value="Berlijn">Berlijn</option>
+                </select>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="flyTo()">Confirm Journey</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
