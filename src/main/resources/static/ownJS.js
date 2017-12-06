@@ -1,4 +1,5 @@
 var idForAll;
+var aircraftForAll;
 
 function getData() {
     console.log("getting data...");
@@ -15,6 +16,21 @@ function getData() {
         }
     });
 }
+
+// Puts aircraft data to the server
+function putData(aircraft){
+    $.ajax({
+        url:"http://localhost:8080/api/aircraft/update",
+        type:"put",
+        data: aircraft,
+        contentType: "application/json",
+        success: function(result){
+            console.log("Updated aircraft.");
+            getData();
+        }
+    });
+}
+
 
 function deleteOne() {
     console.log("Deleting data...")
@@ -38,13 +54,15 @@ function getOne(id) {
         success: function(result) {
             console.log("this is the data: " + result);
 
-            var aircraft = result;
-            console.log(aircraft.aircraftName);
-            return aircraft;
+
+            console.log(result.aircraftName);
+            return result;
 
         }
     })
-    }
+}
+
+
 
 
 
@@ -87,6 +105,38 @@ function postNewAircraft() {
     });
 }
 
+function fuelUp() {
+     console.log("Fueling..");
+     $.ajax({
+            url: "http://localhost:8080/api/aircraft/getOne/" + idForAll,
+            type: "get",
+            success: function(result) {
+                console.log("this is the data: " + result);
+
+                console.log(result.aircraftName);
+                var currentNumber = result.fuelLevel;
+                console.log(currentNumber);
+                result.fuelLevel = currentNumber + 5;
+                console.log(result.fuelLevel);
+
+                var newAircraft = {
+                        id : result.id,
+                        aircraftName : result.aircraftName,
+                        airportLocation : result.airportLocation,
+                        maxFuelLevel : result.maxFuelLevel,
+                        fuelLevel : result.fuelLevel
+                        }
+
+                var validJsonAircraft = JSON.stringify(newAircraft);
+                putData(validJsonAircraft);
+
+
+            }
+        })
+
+
+}
+
 
 $(document).ready(function(){
 
@@ -119,9 +169,6 @@ $(document).ready(function(){
         idForAll = table.row( this ).data().id
 
         console.log("This row is clicked: var ID = "+ idForAll);
-
-        var aircraftReturned = getOne(idForAll);
-
 
     } );
 

@@ -34,4 +34,9 @@ public class AircraftController {
         Aircraft airportToReturn = aircraftRepository.findOne(id);
         aircraftRepository.delete(id);
     }
+
+    @RequestMapping(value = "update", method = RequestMethod.PUT)
+    public void updateAircraft(@RequestBody Aircraft aircraft){
+        aircraftRepository.save(aircraft);
+    }
 }
