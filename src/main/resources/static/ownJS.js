@@ -58,6 +58,7 @@ $(document).ready(function(){
     console.log("predatatable");
 
     $('#table').DataTable({
+
         columns: [
             {"data": "aircraftName"},
             {"data": "fuelLevel"},
