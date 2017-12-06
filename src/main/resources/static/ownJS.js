@@ -8,10 +8,56 @@ function getData() {
             console.log("This is the Data: " + aircrafts);
 
             $('#table').DataTable().clear();
-            $('#table').DataTable().rows.add(books);
+            $('#table').DataTable().rows.add(aircrafts);
             $('#table').DataTable().columns.adjust().draw();
         }
     });
+}
+
+function showModal(id){
+    $(id).modal('toggle');
+    $(document).ready(getAirports());
+}
+
+function getAirports() {
+    console.log("getting rooms...")
+
+    $.ajax({
+        url:"http://localhost:8080/api/airport/all",
+        type:"get",
+        success: function(result) {
+            airports = result;
+            console.log("These are the airports: " + airports);
+            for(i=0;i<airports.length;i++) {
+                    $("#airportSelect").append('<option value='+airports[i].id+'>'+airports[i].name+'</option>');
+               }
+        }
+    })
+
+}
+
+function postNewAirport(){
+
+            var airportName = $('#inputAirportName').val();
+            var authorOfNewBook = $('#author').val();
+
+            var newAirport = {
+                aircraftName : airportName,
+                aircraftList : [{}]
+            }
+
+            var validJsonAirport = JSON.stringify(newAirport);
+                    console.log(validJsonAuthor);
+
+            $.ajax({
+                    url: "http://localhost:8080/api/airport/add",
+                    type: "post",
+                    data: validJsonAirport,
+                    contentType: "application/json",
+                    success: function(result){
+                        console.log("succes, posted airport");
+                    }
+                    });
 }
 
 

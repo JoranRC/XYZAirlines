@@ -40,6 +40,9 @@
 
 </div>
 
+<button type="button" onclick="showModal('#newAircraftModal')">add new aircraft</button>
+<button type="button" onclick="showModal('#newAirportModal')">add new airport</button>
+
 <div class="container-fluid" id="content">
     <!-- Pages are loaded into this div -->
     <div>
@@ -57,6 +60,59 @@
     </div>
 
 </div>
+
+<div id="newAircraftModal" class="modal fade" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Add a new Aircraft</h2>
+        </div>
+        <div class="modal-body">
+            <form data-toggle="validator" role="form" id="newAircraftForm" onsubmit="return false">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputName" placeholder="Enter a descriptive title" data-error="this is not good" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputMaxFuelLevel" placeholder="Enter max Fuellevel" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputFuelLevel" placeholder="Enter current fuellevel" required>
+                </div>
+                <div class="form-group">
+                    <select id="airportSelect" class="form-control" required>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="postNewAircraft()">add new aircraft</button>
+        </div>
+    </div>
+</div>
+
+<div id="newAirportModal" class="modal fade" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Add a new Airport</h2>
+        </div>
+        <div class="modal-body">
+            <form data-toggle="validator" role="form" id="newAirportForm" onsubmit="return false">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputAirportName" placeholder="Enter a descriptive title" data-error="this is not good" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="postNewAircraft()">add new aircraft</button>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
