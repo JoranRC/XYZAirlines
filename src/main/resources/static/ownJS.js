@@ -36,6 +36,42 @@ function getAirports() {
 
 }
 
+function postNewAircraft() {
+
+    var aircraftName = $('#inputAircraftName').val();
+    var airportLocation = $('#inputAirportLocation').val();
+    var maxFuelLevel = $('#inputMaxFuelLevel').val();
+    var FuelLevel = $('#inputFuelLevel').val();
+
+    var newAircraft = {
+        aircraftName : aircraftName,
+        airportLocation : airportLocation,
+        maxFuelLevel : maxFuelLevel,
+        FuelLevel : FuelLevel
+        }
+
+    $.ajax({
+            url: "http://localhost:8080/api/aircraft/add",
+            type: "post",
+            data: validJsonAirport,
+            contentType: "application/json",
+            success: function(result){
+                console.log("succes, posted airport");
+                }
+    });
+
+
+
+
+
+
+
+
+
+
+
+}
+
 function postNewAirport(){
 
             var airportName = $('#inputAirportName').val();

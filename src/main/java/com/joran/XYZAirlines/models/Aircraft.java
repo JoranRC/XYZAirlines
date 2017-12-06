@@ -12,8 +12,8 @@ public class Aircraft {
     private long id;
     @NotNull
     public String aircraftName;
-    @ManyToOne
-    public Airport airport;
+    @NotNull
+    public String airportlocation;
     @NotNull
     public int maxFuelLevel;
     @NotNull
@@ -23,10 +23,10 @@ public class Aircraft {
 
     }
 
-    public Aircraft(int id, String aircraftName, Airport airport, int maxFuelLevel, int fuelLevel) {
+    public Aircraft(int id, String aircraftName, String airportlocation, int maxFuelLevel, int fuelLevel) {
         this.id = id;
         this.aircraftName = aircraftName;
-        this.airport = airport;
+        this.airportlocation = airportlocation;
         this.maxFuelLevel = maxFuelLevel;
         this.fuelLevel = fuelLevel;
     }
@@ -39,12 +39,12 @@ public class Aircraft {
         this.aircraftName = aircraftName;
     }
 
-    public Airport getAirport() {
-        return airport;
+    public String getAirport() {
+        return airportlocation;
     }
 
-    public void setAirport(Airport airport) {
-        this.airport = airport;
+    public void setAirport(String airportlocation) {
+        this.airportlocation = airportlocation;
     }
 
     public int getMaxFuelLevel() {
