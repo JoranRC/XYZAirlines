@@ -13,7 +13,7 @@ public class Aircraft {
     @NotNull
     public String aircraftName;
     @NotNull
-    public String airportlocation;
+    public String airportLocation;
     @NotNull
     public int maxFuelLevel;
     @NotNull
@@ -23,10 +23,10 @@ public class Aircraft {
 
     }
 
-    public Aircraft(int id, String aircraftName, String airportlocation, int maxFuelLevel, int fuelLevel) {
+    public Aircraft(int id, String aircraftName, String airportLocationocation, int maxFuelLevel, int fuelLevel) {
         this.id = id;
         this.aircraftName = aircraftName;
-        this.airportlocation = airportlocation;
+        this.airportLocation = airportLocation;
         this.maxFuelLevel = maxFuelLevel;
         this.fuelLevel = fuelLevel;
     }
@@ -40,11 +40,11 @@ public class Aircraft {
     }
 
     public String getAirport() {
-        return airportlocation;
+        return airportLocation;
     }
 
     public void setAirport(String airportlocation) {
-        this.airportlocation = airportlocation;
+        this.airportLocation = airportlocation;
     }
 
     public int getMaxFuelLevel() {

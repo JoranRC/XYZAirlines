@@ -38,7 +38,7 @@ function getAirports() {
 
 function postNewAircraft() {
 
-    var aircraftName = $('#inputAircraftName').val();
+    var aircraftName = $('#inputName').val();
     var airportLocation = $('#inputAirportLocation').val();
     var maxFuelLevel = $('#inputMaxFuelLevel').val();
     var FuelLevel = $('#inputFuelLevel').val();
