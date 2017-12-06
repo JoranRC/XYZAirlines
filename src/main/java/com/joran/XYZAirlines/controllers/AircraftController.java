@@ -24,6 +24,11 @@ public class AircraftController {
        aircraftRepository.save(aircraftToAdd);
     }
 
+    @RequestMapping(value = "getOne/{id}", method = RequestMethod.GET)
+    public Aircraft getRoom(@PathVariable long id){
+        return aircraftRepository.findOne(id);
+    }
+
     @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable long id) {
         Aircraft airportToReturn = aircraftRepository.findOne(id);

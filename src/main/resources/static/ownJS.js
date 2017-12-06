@@ -14,6 +14,23 @@ function getData() {
     });
 }
 
+function getOne(id) {
+    console.log("Getting data..... ");
+    var id = id;
+    $.ajax({
+        url: "http://localhost:8080/api/aircraft/getOne/" + id,
+        type: "get",
+        success: function(result) {
+            console.log("this is the data: " + result);
+
+            var aircraft = result;
+            console.log(aircraft.aircraftName);
+            return aircraft;
+
+        }
+    })
+    }
+
 
 
 function showModal(id){
@@ -87,6 +104,7 @@ $(document).ready(function(){
         var id = table.row( this ).data().id
 
         console.log("This row is clicked: var ID = "+ id);
+        var aircraftReturned = getOne(id);
 
     } );
 
