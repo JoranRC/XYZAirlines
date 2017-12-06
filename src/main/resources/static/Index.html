@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <!--Import validator-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <script src="ownJS.js"></script>
 </head>
 <body>
@@ -31,8 +33,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li id="addaircraft-button"><a href="#" onclick="showModal('#newAircraftModal')">Add new aircraft</a></li>
-                    <li id="deleteaircraft-button"><a href="#" onclick="">Delete aircraft</a></li>
+                    <li id="addaircraft-button"><a href="#" onclick="showModal('#myModal')">Add new aircraft</a></li>
+                    <li id="deleteaircraft-button"><a href="#" onclick="showModal('#myModal')">Delete aircraft</a></li>
                 </ul>
 
             </div><!-- /.navbar-collapse -->
@@ -40,8 +42,6 @@
     </nav>
 
 </div>
-
-<button type="button" onclick="showModal('#newAircraftModal')">add new aircraft</button>
 
 
 <div class="container-fluid" id="content">
@@ -62,32 +62,73 @@
 
 </div>
 
-<div id="newAircraftModal" class="modal fade" role="dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>Add a new Aircraft</h2>
-        </div>
-        <div class="modal-body">
-            <form data-toggle="validator" role="form" id="newAircraftForm" onsubmit="return false">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="inputName" placeholder="Enter a descriptive title" data-error="this is not good" required>
-                    <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" id="inputMaxFuelLevel" placeholder="Enter max Fuellevel" required>
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" id="inputFuelLevel" placeholder="Enter current fuellevel" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="inputAirportLocation" placeholder="Airport location" required>
-                </div>
 
-            </form>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form class="formcenter" data-toggle="validator" role="form" id="form">
+                    <div class="row form-group">
+                        <div class="col-25">
+                            <div class="control-label" id="roomNumberText"></div>
+                            <label for="inputName">Aircraft Name</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" class="form-control" id="inputName" name="roomNumber" placeholder="Generic Aircraft name" value="" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-25">
+                            <div class="control-label" id="maxFuellevel"></div>
+                            <label for="inputMaxFuelLevel">Max Fuel Level</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" class="form-control" id="inputMaxFuelLevel" name="roomNumber" value="5" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-25">
+                            <div class="control-label" id="fuelLevel"></div>
+                            <label for="inputFuelLevel">Current fuellevel</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" class="form-control" id="inputFuelLevel" name="roomNumber" placeholder="Room Number" value="" required>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-25">
+                            <label for="inputAirportLocation">Aircraft location</label>
+                        </div>
+                        <div class="col-75">
+                            <select id="inputAirportLocation" >
+                                <option value="Amsterdam">Amsterdam</option>
+                                <option value="London">London</option>
+                                <option value="Parijs">Parijs</option>
+                                <option value="Stockholm">Stockholm</option>
+                                <option value="Berlijn">Berlijn</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <input id="submit" type="submit" value="Add aircraft">
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" onclick="postNewAircraft()">add new aircraft</button>
-        </div>
+
     </div>
 </div>
 

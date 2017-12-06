@@ -14,9 +14,12 @@ function getData() {
     });
 }
 
+
+
 function showModal(id){
     $(id).modal('show');
 }
+
 
 function postNewAircraft() {
 
@@ -41,7 +44,7 @@ function postNewAircraft() {
             data: validJsonAircraft,
             contentType: "application/json",
             success: function(result){
-                console.log("succes, posted airport");
+                console.log("succes, posted aircraft");
                 $('#newAircraftModal').modal('hide');
                   $('#inputName').val("");
                   $('#inputAirportLocation').val("");
@@ -54,6 +57,19 @@ function postNewAircraft() {
 
 
 $(document).ready(function(){
+
+
+
+    $('#form').validator().on('submit', function (e) {
+          if (e.isDefaultPrevented()) {
+            // INVALID FORM, DO NOTHING
+          } else {
+            // Do something.
+           postNewAircraft();
+            // Prevent default form action
+            e.preventDefault();
+          }
+        });
 
     console.log("predatatable");
 
