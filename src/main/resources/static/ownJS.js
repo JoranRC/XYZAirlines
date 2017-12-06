@@ -45,7 +45,7 @@ function postNewAircraft() {
             contentType: "application/json",
             success: function(result){
                 console.log("succes, posted aircraft");
-                $('#newAircraftModal').modal('hide');
+                $('#myModal').modal('hide');
                   $('#inputName').val("");
                   $('#inputAirportLocation').val("");
                   $('#inputMaxFuelLevel').val("");
@@ -57,8 +57,6 @@ function postNewAircraft() {
 
 
 $(document).ready(function(){
-
-
 
     $('#form').validator().on('submit', function (e) {
           if (e.isDefaultPrevented()) {
@@ -76,11 +74,21 @@ $(document).ready(function(){
     $('#table').DataTable({
 
         columns: [
+            {"data": "id"},
             {"data": "aircraftName"},
             {"data": "fuelLevel"},
             {"data": "airportLocation"},
         ]
     });
+
+    var table = $('#table').DataTable();
+
+    $('#table').on( 'click', 'tr', function () {
+        var id = table.row( this ).data().id
+
+        console.log("This row is clicked: var ID = "+ id);
+
+    } );
 
     console.log("afterdatatable");
 
