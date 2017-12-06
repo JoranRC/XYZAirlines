@@ -41,13 +41,13 @@ function postNewAircraft() {
     var aircraftName = $('#inputName').val();
     var airportLocation = $('#inputAirportLocation').val();
     var maxFuelLevel = $('#inputMaxFuelLevel').val();
-    var FuelLevel = $('#inputFuelLevel').val();
+    var fuelLevel = $('#inputFuelLevel').val();
 
     var newAircraft = {
         aircraftName : aircraftName,
         airportLocation : airportLocation,
         maxFuelLevel : maxFuelLevel,
-        FuelLevel : FuelLevel
+        fuelLevel : fuelLevel
         }
 
     var validJsonAircraft = JSON.stringify(newAircraft);
