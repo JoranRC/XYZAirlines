@@ -50,14 +50,17 @@ function postNewAircraft() {
         FuelLevel : FuelLevel
         }
 
+    var validJsonAircraft = JSON.stringify(newAircraft);
+        console.log(validJsonAircraft);
+
     $.ajax({
             url: "http://localhost:8080/api/aircraft/add",
             type: "post",
-            data: validJsonAirport,
+            data: validJsonAircraft,
             contentType: "application/json",
             success: function(result){
                 console.log("succes, posted airport");
-                }
+            }
     });
 
 
