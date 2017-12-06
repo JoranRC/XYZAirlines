@@ -1,3 +1,5 @@
+var idForAll;
+
 function getData() {
     console.log("getting data...");
 
@@ -13,6 +15,19 @@ function getData() {
         }
     });
 }
+
+function deleteOne() {
+    console.log("Deleting data...")
+    $.ajax({
+            url: "http://localhost:8080/api/aircraft/delete/" + idForAll,
+            type: "delete",
+            success: function(result) {
+                console.log("Data is deleted");
+                getData();
+            }
+        })
+    }
+
 
 function getOne(id) {
     console.log("Getting data..... ");
@@ -101,10 +116,12 @@ $(document).ready(function(){
     var table = $('#table').DataTable();
 
     $('#table').on( 'click', 'tr', function () {
-        var id = table.row( this ).data().id
+        idForAll = table.row( this ).data().id
 
-        console.log("This row is clicked: var ID = "+ id);
-        var aircraftReturned = getOne(id);
+        console.log("This row is clicked: var ID = "+ idForAll);
+
+        var aircraftReturned = getOne(idForAll);
+
 
     } );
 

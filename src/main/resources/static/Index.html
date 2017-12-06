@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li id="addaircraft-button"><a href="#" onclick="showModal('#myModal')">Add new aircraft</a></li>
-                    <li id="deleteaircraft-button"><a href="#" onclick="showModal('#myModal')">Delete aircraft</a></li>
+                    <li id="deleteaircraft-button"><a href="#" onclick="deleteOne()">Delete aircraft</a></li>
                 </ul>
 
             </div><!-- /.navbar-collapse -->
@@ -124,6 +124,26 @@
 
                 </form>
 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="updateModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <button id="deleteButton" type="button" onclick="">Delete</button>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
