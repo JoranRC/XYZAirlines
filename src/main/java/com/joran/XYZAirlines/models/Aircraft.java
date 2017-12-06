@@ -19,6 +19,10 @@ public class Aircraft {
     @NotNull
     public int fuelLevel;
 
+    public Aircraft(){
+
+    }
+
     public Aircraft(int id, String aircraftName, Airport airport, int maxFuelLevel, int fuelLevel) {
         this.id = id;
         this.aircraftName = aircraftName;
@@ -57,5 +61,9 @@ public class Aircraft {
 
     public void setFuelLevel(int fuelLevel) {
         this.fuelLevel = fuelLevel;
+    }
+
+    public long getId() {
+        return id;
     }
 }

@@ -7,6 +7,7 @@ import com.joran.XYZAirlines.repositories.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("api/airport/")
 public class AirportController {
@@ -26,10 +27,12 @@ public class AirportController {
         airportRepository.save(airportToAdd);
     }
 
+    /*
     @RequestMapping(value = "delete/{airportName}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String airportName) {
         Airport airportToRemove = airportRepository.findOneByName(airportName);
         airportRepository.delete(airportToRemove);
     }
+    */
 
 }

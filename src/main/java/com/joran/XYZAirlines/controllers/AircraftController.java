@@ -25,11 +25,13 @@ public class AircraftController {
        aircraftRepository.save(aircraftToAdd);
     }
 
+    /*
     @RequestMapping(value = "delete/{aircraftName}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String aircraftName) {
         Aircraft aircraftToRemove = aircraftRepository.findOneByName(aircraftName);
         aircraftRepository.delete(aircraftToRemove);
     }
+    */
 
 
 }

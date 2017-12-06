@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AircraftRepository extends CrudRepository<Aircraft, Long> {
-    Aircraft findOneByName(String aircraftName);
 
 }

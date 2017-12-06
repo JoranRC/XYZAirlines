@@ -17,6 +17,10 @@ public class Airport {
     @ManyToMany
     List<Aircraft> aircraftList;
 
+    public Airport(){
+
+    }
+
     public Airport(long id, String airportName, List<Aircraft> aircraftList) {
         this.id = id;
         this.airportName = airportName;
