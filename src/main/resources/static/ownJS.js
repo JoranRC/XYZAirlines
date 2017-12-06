@@ -47,7 +47,7 @@ function postNewAirport(){
             }
 
             var validJsonAirport = JSON.stringify(newAirport);
-                    console.log(validJsonAuthor);
+                    console.log(validJsonAirport);
 
             $.ajax({
                     url: "http://localhost:8080/api/airport/add",

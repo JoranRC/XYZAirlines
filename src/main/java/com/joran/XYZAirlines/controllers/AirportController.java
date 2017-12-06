@@ -27,12 +27,12 @@ public class AirportController {
         airportRepository.save(airportToAdd);
     }
 
-    /*
-    @RequestMapping(value = "delete/{airportName}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable String airportName) {
-        Airport airportToRemove = airportRepository.findOneByName(airportName);
-        airportRepository.delete(airportToRemove);
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable long id) {
+        Airport airportToReturn = airportRepository.findOne(id);
+        airportRepository.delete(id);
     }
-    */
+
 
 }

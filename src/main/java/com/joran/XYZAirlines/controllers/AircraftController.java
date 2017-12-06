@@ -1,6 +1,7 @@
 package com.joran.XYZAirlines.controllers;
 
 import com.joran.XYZAirlines.models.Aircraft;
+import com.joran.XYZAirlines.models.Airport;
 import com.joran.XYZAirlines.repositories.AircraftRepository;
 import com.joran.XYZAirlines.repositories.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,13 @@ public class AircraftController {
        aircraftRepository.save(aircraftToAdd);
     }
 
-    /*
-    @RequestMapping(value = "delete/{aircraftName}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable String aircraftName) {
-        Aircraft aircraftToRemove = aircraftRepository.findOneByName(aircraftName);
-        aircraftRepository.delete(aircraftToRemove);
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable long id) {
+        Aircraft airportToReturn = aircraftRepository.findOne(id);
+        aircraftRepository.delete(id);
     }
-    */
+
 
 
 }
