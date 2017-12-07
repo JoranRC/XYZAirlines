@@ -112,6 +112,13 @@ function fuelUp() {
             success: function(result) {
                 console.log("this is the data: " + result);
 
+                //checks the maximum fuellevel, can't tank more than max!
+                if(result.fuelLevel = 5){
+                    $('#flyToModal').modal('hide');
+                    $('#warningModal').modal('show');
+                    //alert('You have not enough fuel to travel');
+                    return;
+                }
                 var currentNumber = result.fuelLevel;
                 result.fuelLevel = currentNumber + 1;
 
@@ -139,7 +146,16 @@ function flyTo() {
             url: "http://localhost:8080/api/aircraft/getOne/" + idForAll,
             type: "get",
             success: function(result) {
+
                 console.log("this is the data: " + result);
+
+                //Checks if the fuelLevel is to low to fly
+                if(result.fuelLevel <= 1){
+                    $('#flyToModal').modal('hide');
+                    $('#warningModal').modal('show');
+                    //alert('You have not enough fuel to travel');
+                    return;
+                }
 
                 var newAirportLocation = $('#updateAirportLocation').val();
 
@@ -166,7 +182,7 @@ function flyTo() {
 
 $(document).ready(function(){
 
-//Formvalidator function
+//Formvalidator submit function
     $('#form').validator().on('submit', function (e) {
           if (e.isDefaultPrevented()) {
             // INVALID FORM, DO NOTHING
