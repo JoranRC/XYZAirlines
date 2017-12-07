@@ -159,6 +159,13 @@ function flyTo() {
 
                 var newAirportLocation = $('#updateAirportLocation').val();
 
+                if(newAirportLocation == result.airportLocation){
+                    $('#flyToModal').modal('hide');
+                    $('#warningModal').modal('show');
+                    return;
+                }
+
+
                 var currentNumber = result.fuelLevel;
                 result.fuelLevel = currentNumber - 2;
                 result.airportLocation = newAirportLocation;
