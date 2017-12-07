@@ -1,6 +1,7 @@
 var idForAll;
 var aircraftForAll;
 
+// function to perform a getrequest on the backend, fills the datatable
 function getData() {
     console.log("getting data...");
 
@@ -17,7 +18,7 @@ function getData() {
     });
 }
 
-// Puts aircraft data to the server
+// Function that puts aircraft data to the server. Used to update the values of an aircaft
 function putData(aircraft){
     $.ajax({
         url:"http://localhost:8080/api/aircraft/update",
@@ -31,7 +32,7 @@ function putData(aircraft){
     });
 }
 
-
+// Function to perform an delete request on the server
 function deleteOne() {
     console.log("Deleting data...")
     $.ajax({
@@ -45,6 +46,7 @@ function deleteOne() {
     }
 
 
+//Function to perform an request to the server, I know that this doesn't work and I don't use it but I don't want to delete it for learning purposes
 function getOne(id) {
     console.log("Getting data..... ");
     var id = id;
@@ -61,18 +63,18 @@ function getOne(id) {
 }
 
 
-
+//Function to show an modal
 function showModal(id){
     $(id).modal('show');
 }
 
-
+//Function used to perform a post request on the server.
 function postNewAircraft() {
 
     var aircraftName = $('#inputName').val();
     var airportLocation = $('#inputAirportLocation').val();
-    var maxFuelLevel = $('#inputMaxFuelLevel').val();
-    var fuelLevel = $('#inputFuelLevel').val();
+    var maxFuelLevel = 5
+    var fuelLevel = 5
 
     var newAircraft = {
         aircraftName : aircraftName,
@@ -101,6 +103,7 @@ function postNewAircraft() {
     });
 }
 
+//Function to fuelup an aircraft, gets the right aircraft and performs an updaterequest
 function fuelUp() {
      console.log("Fueling..");
      $.ajax({
@@ -129,6 +132,7 @@ function fuelUp() {
         })
 }
 
+//Function to fuelup an aircraft, gets the right aircraft and performs an updaterequest
 function flyTo() {
      console.log("Fly to..");
      $.ajax({
@@ -162,6 +166,7 @@ function flyTo() {
 
 $(document).ready(function(){
 
+//Formvalidator function
     $('#form').validator().on('submit', function (e) {
           if (e.isDefaultPrevented()) {
             // INVALID FORM, DO NOTHING
@@ -175,6 +180,7 @@ $(document).ready(function(){
 
     console.log("predatatable");
 
+//create the datatable
     $('#table').DataTable({
 
         columns: [
@@ -184,7 +190,7 @@ $(document).ready(function(){
             {"data": "airportLocation"},
         ]
     });
-
+//make datatable clickable
     var table = $('#table').DataTable();
 
     $('#table').on( 'click', 'tr', function () {
@@ -195,6 +201,6 @@ $(document).ready(function(){
     } );
 
     console.log("afterdatatable");
-
+//fill the datatable
     getData();
 });

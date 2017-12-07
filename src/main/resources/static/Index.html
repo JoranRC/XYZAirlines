@@ -6,16 +6,18 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <Link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <!-- Common javascript imports -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <!--Import validator-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <!-- Import of my own javascript -->
     <script src="ownJS.js"></script>
 </head>
 <body>
 
-
+<!-- A basic navbar to navigate the frontend -->
 <div>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -30,7 +32,7 @@
                 <a class="navbar-brand" href="#" onclick=""></a>
             </div>
 
-             -->
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li id="addaircraft-button"><a href="#" onclick="showModal('#myModal')">Add new aircraft</a></li>
@@ -46,9 +48,9 @@
 
 </div>
 
-
+<!-- A table that will be a datatable -->
 <div class="container-fluid" id="content">
-    <!-- Pages are loaded into this div -->
+
     <div>
         <table id="table" class="table">
             <thead>
@@ -67,7 +69,7 @@
 </div>
 
 
-
+<!-- A modal to add a aircraft, contains a piece of code to easily convert a larger fuelcapacity  -->
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -88,7 +90,7 @@
                             <input type="text" class="form-control" id="inputName" name="aircraftname" placeholder="Generic Aircraft name" value="" required>
                         </div>
                     </div>
-                    <div class="row form-group">
+                    <!--<div class="row form-group">
                         <div class="col-25">
                             <div class="control-label" id="maxFuellevel"></div>
                             <label for="inputMaxFuelLevel">Max Fuel Level</label>
@@ -105,7 +107,7 @@
                         <div class="col-75">
                             <input type="number" class="form-control" id="inputFuelLevel" name="fuelLevel" placeholder="1" value="" required>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row form-group">
                         <div class="col-25">
                             <label for="inputAirportLocation">Aircraft location</label>
@@ -136,6 +138,7 @@
     </div>
 </div>
 
+<!-- A modal for the flyTo function -->
 <div id="flyToModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 

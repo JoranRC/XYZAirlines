@@ -10,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Joran
+ * Testclass witch contains tests
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class XyzAirlinesApplicationTests {

@@ -3,9 +3,13 @@ package com.joran.XYZAirlines.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+/**
+ *@Author Joran
+ *Aircraft model. Just a POJO
+ */
+
 @Entity
 public class Aircraft {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,14 +23,24 @@ public class Aircraft {
     @NotNull
     private int fuelLevel;
 
+    //Empty constructor for springboot
     public Aircraft(){ }
 
+    /**
+     * This instantiates a new aircraft
+     * @param aircraftName
+     * @param airportLocation
+     * @param maxFuelLevel
+     * @param fuelLevel
+     */
     public Aircraft(String aircraftName, String airportLocation, int maxFuelLevel, int fuelLevel) {
         this.aircraftName = aircraftName;
         this.airportLocation = airportLocation;
         this.maxFuelLevel = maxFuelLevel;
         this.fuelLevel = fuelLevel;
     }
+
+    //Getters and Setters for all variables
 
     public long getId() {
         return id;
