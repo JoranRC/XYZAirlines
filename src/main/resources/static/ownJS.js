@@ -113,7 +113,7 @@ function fuelUp() {
                 console.log("this is the data: " + result);
 
                 //checks the maximum fuellevel, can't tank more than max!
-                if(result.fuelLevel = 5){
+                if(result.fuelLevel == 5){
                     $('#flyToModal').modal('hide');
                     $('#warningModal').modal('show');
                     //alert('You have not enough fuel to travel');
@@ -210,6 +210,7 @@ $(document).ready(function(){
     var table = $('#table').DataTable();
 
     $('#table').on( 'click', 'tr', function () {
+
         idForAll = table.row( this ).data().id
 
         console.log("This row is clicked: var ID = "+ idForAll);

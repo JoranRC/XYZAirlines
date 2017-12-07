@@ -22,18 +22,31 @@ public class XyzAirlinesApplicationTests {
 	public void contextLoads() {
 	}
 
+
 	@Test
-	public void testAircraftModel() {
-		Aircraft aircraft = new Aircraft("Boeing", "london", 1, 5);
-		aircraft.setId(1);
-		long id = aircraft.getId();
+	public void testAircraftName() {
+		Aircraft aircraft = new Aircraft();
+		aircraft.setAircraftName("Boeing");
 		String aircraftName = aircraft.getAircraftName();
-
-
-		assertEquals(1,id);
 		assertEquals("Boeing",aircraftName);
-		;
 	}
+
+	@Test
+	public void testAircraftLocation() {
+		Aircraft aircraft = new Aircraft();
+		aircraft.setAirportLocation("Amsterdam");
+		String aircraftLocation = aircraft.getAirportLocation();
+		assertEquals("Amsterdam", aircraftLocation);
+	}
+
+	@Test
+	public void testAircraftMaxFuelLevel(){
+		Aircraft aircraft = new Aircraft();
+		aircraft.setMaxFuelLevel(5);
+		int maxFuelLevel = aircraft.getMaxFuelLevel();
+		assertEquals(5,maxFuelLevel);
+	}
+
 
 
 
